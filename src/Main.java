@@ -34,6 +34,7 @@ public class Main {
                     address = "";
                     continue;
                 }
+
                 address = address.toUpperCase();
             }
             break;
