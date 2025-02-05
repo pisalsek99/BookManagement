@@ -47,9 +47,9 @@ public class Main {
     }
 
     public static void displayMenu(String name, String address, Scanner sc) {
-//        String blueColor = "\u001B[34m";
-//        String resetColor = "\u001B[0m";
-//        String redColor = "\u001B[31m";
+        String blueColor = "\u001B[34m";
+        String resetColor = "\u001B[0m";
+        String redColor = "\u001B[31m";
         while (true) {
             System.out.println("========= " + name + " LIBRARY, " + address + " =========");
             System.out.println("1- ADD BOOKS ");
