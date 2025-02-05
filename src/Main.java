@@ -14,14 +14,13 @@ public class Main {
         String redColor = "\u001B[31m";
         String resetColor = "\u001B[0m";
         String blueColor = "\u001B[34m";
-
         System.out.println("========= SET UP LIBRARY =========");
         while (true) {
             if (name.isEmpty()) {
                 System.out.print("=> Enter Library's Name: ");
                 name = sc.nextLine().trim();
                 if (!name.matches("^[a-zA-Z\\s]+$")) {
-                    System.out.println(redColor + "Invalid name! Please enter only letters and spaces." + resetColor);
+                    System.out.println(redColor + "\uD83D\uDCA5Invalid name! Please enter only letters and spaces." + resetColor);
                     name = "";
                     continue;
                 }
@@ -31,7 +30,7 @@ public class Main {
                 System.out.print("=> Enter Library's Address: ");
                 address = sc.nextLine().trim();
                 if (!address.matches("^[a-zA-Z\\s]+$")) {
-                    System.out.println(redColor + "Invalid address! Please enter only letters and spaces." + resetColor);
+                    System.out.println(redColor + "\uD83D\uDCA5dsdfdsfcdsInvalid address! Please enter only letters and spaces." + resetColor);
                     address = "";
                     continue;
                 }
@@ -41,25 +40,25 @@ public class Main {
         }
         SimpleDateFormat formatter = new SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy");
         Date date = new Date();
-
-        System.out.println(blueColor + "\n\"" + name + "\" Library is already created in \"" + address + "\" address");
+        System.out.println(blueColor + "\n\uD83D\uDCD6 " + name + "\" Library is already created in \"" + address + "\" address");
         System.out.println("Successfully created on " + formatter.format(date) + "\n" + resetColor);
-
-
         displayMenu(name, address, sc);
     }
 
     public static void displayMenu(String name, String address, Scanner sc) {
         String blueColor = "\u001B[34m";
         String resetColor = "\u001B[0m";
+        String redColor = "\u001B[31m";
         while (true) {
             System.out.println("========= " + name + " LIBRARY, " + address + " =========");
-            System.out.println("1- Add Book ");
-            System.out.println("2- Show All Books ");
-            System.out.println("3- Show Available Books ");
-            System.out.println("4- Borrow Book ");
-            System.out.println("5- Return Book ");
-            System.out.println("6- Exit");
+            System.out.println("1- ADD BOOKS ");
+            System.out.println("2- SHOWS ALL BOOKS AVAILABLE AND UNAVAILABLE ");
+            System.out.println("3- SHOW ONLY BOOKS AVAILABLE ");
+            System.out.println("4- FOR BORROWED BOOKS AVAILABLE ");
+            System.out.println("5- FOR RETURN BOOKS YOU BORROWED ");
+            System.out.println("6- SET UP ROWS TO SHOW RECORDS ");
+            System.out.println("7- FOR DELETED BOOKS BY ID'S ");
+            System.out.println("8- EXIT PROGRAM..... ");
             System.out.println("-----------------------------------------");
             System.out.print("Enter your choice: ");
 
@@ -68,14 +67,14 @@ public class Main {
                 choice = sc.nextInt();
                 sc.nextLine();
             } else {
-                System.out.println("\u001B[34mInvalid input! Please enter a number between 1 and 6.\u001B[0m");
+                System.out.println("\u001B[31m\uD83D\uDCA5Please input nummber for Option !!!\u001B[0m");
                 sc.nextLine();
                 continue;
             }
 
             switch (choice) {
                 case 1:
-                    System.out.println("========= ADD BOOK INFO =========");
+                    System.out.println("\u001B[33m========= ADD BOOK INFO =========\u001B[0m");
                     String authorName;
                     String title;
                     int yearActive;
@@ -88,7 +87,7 @@ public class Main {
                         if (title.matches("^[a-zA-Z\\s]+$")) {
                             break;
                         }
-                        System.out.println("\u001B[31mInvalid book name! Please enter only letters and spaces.\u001B[0m");
+                        System.out.println("\u001B[31m\uD83D\uDCA5Invalid book name! Please enter only letters and spaces.\u001B[0m");
                     }
 
                     // Author Name Validation
@@ -99,7 +98,7 @@ public class Main {
                         if (authorName.matches("^[a-zA-Z\\s]+$")) {
                             break;
                         }
-                        System.out.println("\u001B[31mInvalid author name! Please enter only letters and spaces.\u001B[0m");
+                        System.out.println("\u001B[31m\uD83D\uDCA5Invalid author name! Please enter only letters and spaces.\u001B[0m");
                     }
 
 
@@ -112,10 +111,10 @@ public class Main {
                             if (yearActive <= 2025) {
                                 break;
                             } else {
-                                System.out.println("\u001B[31mInvalid input! Year Active must not be greater than 2025.\u001B[0m");
+                                System.out.println("\u001B[31m\uD83D\uDCA5Invalid input! Year Active must not be greater than 2025.\u001B[0m");
                             }
                         } else {
-                            System.out.println("\u001B[31mInvalid input! Please enter a valid year.\u001B[0m");
+                            System.out.println("\u001B[31m\uD83D\uDCA5Invalid input! Please enter a valid year.\u001B[0m");
                             sc.nextLine();
                         }
                     }
@@ -132,12 +131,13 @@ public class Main {
                             isAlive = false;
                             break;
                         } else {
-                            System.out.println("\u001B[31mInvalid input! Please enter 'yes' or 'no' or 'y' or 'n'.\u001B[0m");
+                            System.out.println("\u001B[31m\uD83D\uDCA5Invalid input! Please enter 'yes' or 'no' or 'y' or 'n'.\u001B[0m");
                         }
                     }
 
                     int yearDie = -1;
-                    if (!isAlive) {
+                    if (!isAlive)
+                    {
                         while (true) {
                             System.out.print("=> Enter Author Year Die: ");
                             if (sc.hasNextInt()) {
@@ -167,13 +167,13 @@ public class Main {
                                 if (publishedYear >= (yearActive + 18)) {
                                     break;
                                 } else {
-                                    System.out.println("\u001B[31mInvalid input! Published Year must be at least 18 years after the Author's Year Active.\u001B[0m");
+                                    System.out.println("\u001B[31m\uD83D\uDCA5Invalid input! Published Year must be at least 18 years after the Author's Year Active.\u001B[0m");
                                 }
                             } else {
-                                System.out.println("\u001B[31mInvalid input! Published Year must not be greater than 2025.\u001B[0m");
+                                System.out.println("\u001B[31m\uD83D\uDCA5Invalid input! Published Year must not be greater than 2025.\u001B[0m");
                             }
                         } else {
-                            System.out.println("\u001B[31mInvalid input! Please enter a valid year.\u001B[0m");
+                            System.out.println("\u001B[31m\uD83D\uDCA5Invalid input! Please enter a valid year.\u001B[0m");
                             sc.nextLine();
                         }
                     }
@@ -189,10 +189,10 @@ public class Main {
                     break;
 
                 case 2:
-                    System.out.println("========= ALL BOOKS =========");
+                    System.out.println("\u001B[33m========= SHOWS ALL BOOKS AVAILABLE AND UNAVAILABLE =========\u001B[0m");
 
                     if (bookCount == 0) {
-                        System.out.println("No books available in the library.");
+                        System.out.println(redColor + "\uD83D\uDCA5 No books available in the library." + resetColor);
                     } else {
                         Table table = new Table(7);
                         table.addCell(String.format("%-10s", "ID"));
@@ -222,10 +222,10 @@ public class Main {
 
 
                 case 3:
-                    System.out.println("\n========= AVAILABLE BOOKS =========");
+                    System.out.println("\n\u001B[33m========= SHOWS AVAILABLE BOOKS =========\u001B[0m");
 
                     if (bookCount == 0) {
-                        System.out.println("\u001B[31mNo books available in the library.\u001B[0m");
+                        System.out.println("\u001B[31m\uD83D\uDCA5 No books available in the library.\u001B[0m");
                         break;
                     }
                     Table table = new Table(5);
@@ -256,45 +256,52 @@ public class Main {
                     if (found) {
                         System.out.println(table.render());
                     } else {
-                        System.out.println("\u001B[31mNo available books at the moment.\u001B[0m");
+                        System.out.println("\u001B[31m\uD83D\uDCA5No available books at the moment.\u001B[0m");
                     }
                     System.out.println();
                     break;
 
                 case 4:
-                    System.out.println("\n========= BORROW BOOK INFO =========");
-                    System.out.print("=> Enter Book ID to Borrow: ");
-                    int idBorrowed = sc.nextInt();
-                    sc.nextLine();
+                    System.out.println("\n\u001B[33m========= BORROW BOOKS INFO =========\u001B[0m");
+                    System.out.print("=> Enter Book IDs to Borrows: ");
+
+                    String input = sc.nextLine();
+                    String[] idsToBorrow = input.split(",");
 
                     boolean bookFound = false;
 
-                    for (int i = 0; i < bookCount; i++) {
-                        if (bookArray[i].getId() == idBorrowed) {
-                            bookFound = true;
+                    for (String idStr : idsToBorrow) {
+                        int idBorrowed = Integer.parseInt(idStr.trim());
+                        boolean bookFoundForThisId = false;
 
-                            if (bookArray[i].getStatus().equalsIgnoreCase("Available")) {
-                                bookArray[i].borrowBook();
-                                System.out.println("\nBook ID : " + bookArray[i].getId());
-                                System.out.println("Book Title : " + bookArray[i].getTitle());
-                                System.out.println("Book Author : " + bookArray[i].getAuthor().getName() +
-                                        " (" + bookArray[i].getAuthor().getYearActive() + "-" + bookArray[i].getAuthor().getYearDie() + ")");
-                                System.out.println("Published Year : " + bookArray[i].getPublishedYear() +
-                                        " is borrowed successfully...\n");
-                            } else {
-                                System.out.println("\u001B[31mBook ID : " + idBorrowed + " is already borrowed!\u001B[0m\n");
+                        for (int i = 0; i < bookCount; i++) {
+                            if (bookArray[i].getId() == idBorrowed) {
+                                bookFoundForThisId = true;
+
+                                if (bookArray[i].getStatus().equalsIgnoreCase("Available")) {
+                                    bookArray[i].borrowBook();
+                                    System.out.println("\nBook ID : " + bookArray[i].getId());
+                                    System.out.println("Book Title : " + bookArray[i].getTitle());
+                                    System.out.println("Book Author : " + bookArray[i].getAuthor().getName() +
+                                            " (" + bookArray[i].getAuthor().getYearActive() + "-" + bookArray[i].getAuthor().getYearDie() + ")");
+                                    System.out.println("Published Year : " + bookArray[i].getPublishedYear() +
+                                            "\n\u001B[34m\uD83D\uDE09 You has been borrowed successfully...\u001B[0m");
+                                } else {
+                                    System.out.println("\u001B[31m\uD83D\uDCA5Book ID : " + idBorrowed + " is already borrowed!\u001B[0m\n");
+                                }
+                                break;
                             }
-                            break;
                         }
-                    }
-                    if (!bookFound) {
-                        System.out.println("\u001B[31mBook ID : " + idBorrowed + " not Exist...\u001B[0m\n");
+
+                        if (!bookFoundForThisId) {
+                            System.out.println("\u001B[31mBook ID : " + idBorrowed + " does not exist...\u001B[0m\n");
+                        }
                     }
                     break;
 
                 case 5:
 
-                    System.out.println("\n========= RETURN BOOK INFO =========");
+                    System.out.println("\n\u001B[33m========= RETURN BOOKS INFO =========\u001B[0m");
                     System.out.print("=> Enter Book ID to Return: ");
                     int idReturn = sc.nextInt();
                     sc.nextLine();
@@ -311,9 +318,9 @@ public class Main {
                                 System.out.println("Book Author : " + bookArray[i].getAuthor().getName() +
                                         " (" + bookArray[i].getAuthor().getYearActive() + "-" + bookArray[i].getAuthor().getYearDie() + ")");
                                 System.out.println("Published Year : " + bookArray[i].getPublishedYear() +
-                                        " is returned successfully...\n");
+                                        "\n\u001B[34m\uD83D\uDE09 You are returned successfully...\n\u001B[0m");
                             } else {
-                                System.out.println("\u001B[31mBook ID : " + idReturn + " failed to return...\u001B[0m\n");
+                                System.out.println("\u001B[31m\uD83D\uDCA5Book ID : " + idReturn + " failed to return...\u001B[0m\n");
                             }
                             break;
                         }
@@ -323,10 +330,81 @@ public class Main {
                     }
                     break;
                 case 6:
-                    System.out.println("\n========= SET PAGE  =========");
+                    System.out.println("\n\u001B[33m========= SETS ROEWS TO SHOES RECORD =========\u001B[0m");
+                    System.out.print("=> Enter the number of rows to display per page: ");
+                    int rowsPerPage = sc.nextInt();
+                    sc.nextLine();
+                    int totalPages = (bookCount + rowsPerPage - 1) / rowsPerPage;
+                    int currentPage = 1;
+
+                    while (true) {
+                        int start = (currentPage - 1) * rowsPerPage;
+                        int end = Math.min(start + rowsPerPage, bookCount);
+
+                        Table tablePagination = new Table(5);
+                        tablePagination.addCell(String.format("%-10s", "ID"));
+                        tablePagination.addCell(String.format("%-20s", "Title"));
+                        tablePagination.addCell(String.format("%-20s", "Author"));
+                        tablePagination.addCell(String.format("%-20s", "Public Date"));
+                        tablePagination.addCell(String.format("%-20s", "Status"));
+
+                        for (int i = start; i < end; i++) {
+                            String statusColor = bookArray[i].getStatus().equalsIgnoreCase("Available") ? "\u001B[34m" : "\u001B[31m";
+                            String statusReset = "\u001B[0m";
+                            tablePagination.addCell(String.valueOf(bookArray[i].getId()));
+                            tablePagination.addCell(bookArray[i].getTitle());
+                            tablePagination.addCell(bookArray[i].getAuthor().getName());
+                            tablePagination.addCell(String.valueOf(bookArray[i].getPublishedYear()));
+                            tablePagination.addCell(statusColor + bookArray[i].getStatus() + statusReset);
+                        }
+                        System.out.println(tablePagination.render());
+                        System.out.println("\nPage " + currentPage + " of " + totalPages + " | Showing " + rowsPerPage + " rows per page");
+
+                        System.out.println("\n--------------------------------------------");
+                        System.out.printf("%-20s%-20s%-20s%-20s\n", "1 - Next Page", "2 - Previous Page", "3 - Last Page", "4 - Exit Pagination");
+                        System.out.println("--------------------------------------------");
+
+                        System.out.print("Enter your choice: ");
+                        int paginationChoice = sc.nextInt();
+                        sc.nextLine();
+
+                        switch (paginationChoice) {
+                            case 1:
+                                if (currentPage < totalPages) {
+                                    currentPage++;
+                                } else {
+                                    System.out.println("\u001B[31m\uD83D\uDCA5You are already on the last page.\u001B[0m");
+                                }
+                                break;
+
+                            case 2:
+                                if (currentPage > 1) {
+                                    currentPage--;
+                                } else {
+                                    System.out.println("\u001B[31m\uD83D\uDCA5You are already on the first page.\u001B[0m");
+                                }
+                                break;
+
+                            case 3:
+                                currentPage = totalPages;
+                                break;
+
+                            case 4:
+                                System.out.println("\nExiting Pagination...");
+                                break;
+
+                            default:
+                                System.out.println("\u001B[31m\uD83D\uDCA5Invalid choice! Please enter a valid option (1-4).\u001B[0m");
+                        }
+
+                        if (paginationChoice == 4) {
+                            break;
+                        }
+                    }
                     break;
+
                 case 7:
-                    System.out.println("\n========= DELETE BOOK BY ID =========");
+                    System.out.println("\n\u001B[33m========= DELETE BOOK BY ID =========\u001B[0m");
                     int idDelete = -1;
                     boolean validInput = false;
                     while (!validInput) {
@@ -338,10 +416,10 @@ public class Main {
                             if (idDelete > 0 && idDelete <= bookCount) {
                                 validInput = true;
                             } else {
-                                System.out.println("\u001B[31mInvalid Book ID! Please enter a valid existing book ID.\u001B[0m");
+                                System.out.println("\u001B[31m\uD83D\uDCA5Invalid Book ID! Please enter a valid existing book ID.\u001B[0m");
                             }
                         } else {
-                            System.out.println("\u001B[31mInvalid input! Please enter a number.\u001B[0m");
+                            System.out.println("\u001B[31m\uD83D\uDCA5Invalid input! Please enter a number.\u001B[0m");
                             sc.next();
                         }
                     }
@@ -355,7 +433,7 @@ public class Main {
                             deleteIndex = i;
 
                             if (!bookArray[i].getStatus().equalsIgnoreCase("Available")) {
-                                System.out.println("\u001B[31mCannot delete! Book is currently borrowed.\u001B[0m");
+                                System.out.println("\u001B[31m\uD83D\uDCA5Cannot delete! Book is currently borrowed.\u001B[0m");
                                 break;
                             }
 
@@ -377,24 +455,22 @@ public class Main {
 
                                 System.out.println("\n\u001B[32mBook ID : " + idDelete + " deleted successfully!\u001B[0m\n");
                             } else {
-                                System.out.println("\n\u001B[31mBook deletion canceled.\u001B[0m\n");
+                                System.out.println("\n\u001B[31m\uD83D\uDCA5Book deletion canceled.\u001B[0m\n");
                             }
                             break;
                         }
                     }
                     break;
 
-
                 case 8:
-                    System.out.println("Exiting... Thank you!");
+                    System.out.println("Exiting... Thank you\uD83D\uDE0A!");
                     return;
                 default:
-                    System.out.println("Invalid choice! Please enter a number between 1 and 8.");
+                    System.out.println("\u001B[31m\uD83D\uDCA5Invalid input! Please enter a number between 1 and 8.\u001B[0m");
             }
             System.out.println();
         }
     }
-
     // resize array
     public static void resizeArray() {
         int newSize = bookArray.length * 2;
